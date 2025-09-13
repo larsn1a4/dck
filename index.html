@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordPress Theme & Plugin Detector</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fab fa-wordpress"></i>
+                <h1>WordPress Detector</h1>
+            </div>
+            <p class="subtitle">Discover themes and plugins used on any WordPress website</p>
+        </header>
+
+        <main class="main-content">
+            <div class="detector-form">
+                <div class="input-group">
+                    <input type="url" id="websiteUrl" placeholder="Enter WordPress website URL (e.g., https://example.com)" required>
+                    <button id="detectBtn" class="detect-btn">
+                        <i class="fas fa-search"></i>
+                        Detect
+                    </button>
+                </div>
+                <div class="url-examples">
+                    <p>Try these examples:</p>
+                    <div class="example-urls">
+                        <button class="example-btn" data-url="https://wordpress.org">wordpress.org</button>
+                        <button class="example-btn" data-url="https://woocommerce.com">woocommerce.com</button>
+                        <button class="example-btn" data-url="https://elementor.com">elementor.com</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="loadingSection" class="loading-section hidden">
+                <div class="loading-spinner"></div>
+                <p>Analyzing website...</p>
+            </div>
+
+            <div id="resultsSection" class="results-section hidden">
+                <div class="results-header">
+                    <h2>Detection Results</h2>
+                    <button id="newSearchBtn" class="new-search-btn">
+                        <i class="fas fa-plus"></i>
+                        New Search
+                    </button>
+                </div>
+
+                <div class="results-content">
+                    <div class="result-card theme-card">
+                        <div class="card-header">
+                            <i class="fas fa-paint-brush"></i>
+                            <h3>Theme Information</h3>
+                        </div>
+                        <div id="themeInfo" class="card-content">
+                            <!-- Theme info will be populated here -->
+                        </div>
+                    </div>
+
+                    <div class="result-card plugins-card">
+                        <div class="card-header">
+                            <i class="fas fa-puzzle-piece"></i>
+                            <h3>Active Plugins</h3>
+                            <span id="pluginCount" class="plugin-count">0 plugins</span>
+                        </div>
+                        <div id="pluginsInfo" class="card-content">
+                            <!-- Plugin info will be populated here -->
+                        </div>
+                    </div>
+
+                    <div class="result-card technical-card">
+                        <div class="card-header">
+                            <i class="fas fa-cogs"></i>
+                            <h3>Technical Details</h3>
+                        </div>
+                        <div id="technicalInfo" class="card-content">
+                            <!-- Technical info will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="errorSection" class="error-section hidden">
+                <div class="error-content">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h3>Detection Failed</h3>
+                    <p id="errorMessage">Something went wrong. Please try again.</p>
+                    <button id="retryBtn" class="retry-btn">
+                        <i class="fas fa-redo"></i>
+                        Try Again
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 WordPress Detector. Built with ❤️ for the WordPress community.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
